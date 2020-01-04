@@ -209,9 +209,9 @@ class DataSet():
                 
                 with np.load(os.path.join(self.test_path, '%s.npz' % name)) as npz:
                     voxel=npz['voxel']
-                    seg=npz['seg']
+                    #seg=npz['seg']
                     #seg=(npz['seg'] * 0.8 + 0.2)
-                    voxel=seg*voxel
+                    #voxel=seg*voxel
                     voxel = self.transform_test(voxel)
                 X_batch.append(voxel)
 
