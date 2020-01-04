@@ -21,10 +21,8 @@ val_generator = val_dataset.test_generator()
 #weights="/home/fubangqi/project/ml/test/re_test-19_1224_0746/weights/030-0.664.hdf5"
 weights="./weights/014-0.699.hdf5" #0.660
 #weights="/home/fubangqi/project/ml/test/3dense_seg_norm-19_1224_1216/weights/049-0.882.hdf5"
-#weights="/home/fubangqi/project/ml/test/fuck_reborn-19_1225_1232/weights/025-1.117.hdf5"   #merry 0.8+0.2
-
-#weights="/home/fubangqi/project/ml/test/reborn-19_1225_1155/weights/010-0.882.hdf5"
-
+#weights="/home/fubangqi/project/ml/test/re-19_1225_1232/weights/025-1.117.hdf5"   #merry 0.8+0.2
+#weights="/home/fubangqi/project/ml/test/re-19_1225_1155/weights/010-0.882.hdf5"
 #weights="/home/fubangqi/project/ml/test/2nd_test_re-19_1225_1431/weights/001-0.657.hdf5"
 #weights="/home/fubangqi/project/ml/test/4_dense-19_1225_1543/weights/016-0.698.hdf5"
 #weights="/home/fubangqi/project/ml/test/4_dense-19_1225_1535/weights/003-0.651.hdf5"
@@ -42,7 +40,7 @@ for i in range(117):
     preds=model.predict(a)
     #result = np.argmax(preds, axis = 1)
     l.append((c[0], preds[0][0]))
-path='./test/submit.csv'
+path='./submit.csv'
 
 p=open(path,'w')
 writer = csv.writer(p)
