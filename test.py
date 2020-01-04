@@ -19,7 +19,7 @@ val_generator = val_dataset.test_generator()
 #weights="/home/fubangqi/project/ml/test/test-19_1223_1247/weights/023-0.655.hdf5"
 #weights="/home/fubangqi/project/ml/test/re_test-19_1224_0746/weights/013-0.699.hdf5"
 #weights="/home/fubangqi/project/ml/test/re_test-19_1224_0746/weights/030-0.664.hdf5"
-weights="./test/3dense-19_1224_0900/weights/014-0.699.hdf5" #0.660
+weights="./weights/014-0.699.hdf5" #0.660
 #weights="/home/fubangqi/project/ml/test/3dense_seg_norm-19_1224_1216/weights/049-0.882.hdf5"
 #weights="/home/fubangqi/project/ml/test/fuck_reborn-19_1225_1232/weights/025-1.117.hdf5"   #merry 0.8+0.2
 
