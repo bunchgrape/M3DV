@@ -89,8 +89,8 @@ class DataSet():
         self.num_val = len(self.data_list_val)
         self.num_test = len(self.test_list)
 
-        self.train_path = "/home/fubangqi/project/ml/data/train_val"
-        self.test_path = "/home/fubangqi/project/ml/data/test"
+        self.train_path = "./data/train_val"
+        self.test_path = "./data/test"
         #self.train_path = "E:/workspace/ml/train_val"
         
         self.transform = Transform(crop_size, move)
@@ -99,7 +99,7 @@ class DataSet():
     @staticmethod
     def get_data_list():
         """Load our data list from file."""
-        with open(os.path.join('/home/fubangqi/project/ml/data', 'train_val.csv'), 'r') as fin:
+        with open(os.path.join('./data', 'train_val.csv'), 'r') as fin:
         #with open(os.path.join('E:/workspace/ml', 'train_val.csv'), 'r') as fin:
             reader = csv.reader(fin)
             data_list = list(reader)
@@ -111,7 +111,7 @@ class DataSet():
     @staticmethod
     def get_test():
 
-        with open(os.path.join('/home/fubangqi/project/ml/data', 'sampleSubmission.csv'), 'r') as fin:
+        with open(os.path.join('./data', 'sampleSubmission.csv'), 'r') as fin:
         #with open(os.path.join('E:/workspace/ml', 'train_val.csv'), 'r') as fin:
             reader = csv.reader(fin)
             data_list = list(reader)
