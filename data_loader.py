@@ -70,7 +70,7 @@ class Transform:
 
 
 class DataSet():
-    def __init__(self, batch_size=32, crop_size=32, move=None, train_test='train'):
+    def __init__(self, batch_size=32, crop_size=32, move=None, train_test='train', data_path='./data'):
         """Constructor.
         opt_flow_len = (int) the number of optical flow frames to consider
         class_limit = (int) number of classes to limit the data to.
@@ -81,25 +81,29 @@ class DataSet():
         self.move = move
         self.train_test = train_test
         # Get the data.
-        self.data_list, self.data_list_val = self.get_data_list()
+        self.data_list, self.data_list_val = self.get_data_list(data_path)
 
-        self.test_list = self.get_test()
+        self.test_list = self.get_test(data_path)
 
         self.num_train = len(self.data_list)
         self.num_val = len(self.data_list_val)
         self.num_test = len(self.test_list)
 
-        self.train_path = "./data/train_val"
-        self.test_path = "./data/test"
+        self.data_path = data_path
+        self.train_path = os.path.join(data_path, "train_val/")
+        self.test_path = os.path.join(data_path, "test/")
         #self.train_path = "E:/workspace/ml/train_val"
-        
+        print(data_path)
+        print(self.train_path)
+
+        print(self.test_path)
         self.transform = Transform(crop_size, move)
         self.transform_test = Transform(crop_size, None)
 
     @staticmethod
-    def get_data_list():
+    def get_data_list(data_path):
         """Load our data list from file."""
-        with open(os.path.join('./data', 'train_val.csv'), 'r') as fin:
+        with open(os.path.join(data_path, 'train_val.csv'), 'r') as fin:
         #with open(os.path.join('E:/workspace/ml', 'train_val.csv'), 'r') as fin:
             reader = csv.reader(fin)
             data_list = list(reader)
@@ -109,9 +113,9 @@ class DataSet():
         return data_list_train, data_list_val
 
     @staticmethod
-    def get_test():
+    def get_test(data_path):
 
-        with open(os.path.join('./data', 'sampleSubmission.csv'), 'r') as fin:
+        with open(os.path.join(data_path, 'sampleSubmission.csv'), 'r') as fin:
         #with open(os.path.join('E:/workspace/ml', 'train_val.csv'), 'r') as fin:
             reader = csv.reader(fin)
             data_list = list(reader)
