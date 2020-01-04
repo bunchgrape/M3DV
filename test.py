@@ -5,9 +5,18 @@ import time
 import os
 import numpy as np
 import csv
+import sys
+
+data_path=sys.argv[1]
+print (sys.argv)
+if len(sys.argv)==3:
+	weights=sys.argv[2]
+else:
+	weights="./weights/014-0.699.hdf5" #0.660
+
 
 val_dataset = DataSet(batch_size=1, crop_size=32, move=None,
-                                train_test='test')
+                                train_test='test', data_path=data_path)
 
 val_generator = val_dataset.test_generator()
 
@@ -19,7 +28,8 @@ val_generator = val_dataset.test_generator()
 #weights="/home/fubangqi/project/ml/test/test-19_1223_1247/weights/023-0.655.hdf5"
 #weights="/home/fubangqi/project/ml/test/re_test-19_1224_0746/weights/013-0.699.hdf5"
 #weights="/home/fubangqi/project/ml/test/re_test-19_1224_0746/weights/030-0.664.hdf5"
-weights="./weights/014-0.699.hdf5" #0.660
+
+#weights="./weights/014-0.699.hdf5" #0.660
 #weights="/home/fubangqi/project/ml/test/3dense_seg_norm-19_1224_1216/weights/049-0.882.hdf5"
 #weights="/home/fubangqi/project/ml/test/re-19_1225_1232/weights/025-1.117.hdf5"   #merry 0.8+0.2
 #weights="/home/fubangqi/project/ml/test/re-19_1225_1155/weights/010-0.882.hdf5"
